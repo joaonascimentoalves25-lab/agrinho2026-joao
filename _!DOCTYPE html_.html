@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal das Olimpíadas</title>
+    <style>
+        /* --- RESET E CONFIGURAÇÕES GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- CABEÇALHO (HEADER) --- */
+        header {
+            background: linear-gradient(135deg, #0085c7, #00a651);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            width: 85%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f4c300;
+        }
+
+        /* --- HERO BANNER --- */
+        .hero {
+            background: rgba(0, 0, 0, 0.6) url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200') no-repeat center center/cover;
+            background-blend-mode: darken;
+            color: white;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* --- CONTEÚDO PRINCIPAL (GRID) --- */
+        .container {
+            width: 85%;
+            margin: 40px auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #002f6c;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #ee334e;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .grid-esportes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: #0085c7;
+        }
+
+        /* --- TABELA DE MEDALHAS --- */
+        .medal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .medal-table th, .medal-table td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+        .medal-table th {
+            background-color: #002f6c;
+            color: white;
+            font-weight: 600;
+        }
+        .medal-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .medal-icon {
+            font-weight: bold;
+        }
+        .ouro { color: #d4af37; }
+        .prata { color: #aaa9ad; }
+        .bronze { color: #cd7f32; }
+
+        /* --- RODAPÉ (FOOTER) --- */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+        
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Mundo Olímpico</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#esportes">Esportes</a></li>
+                    <li><a href="#medalhas">Medalhas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>O Maior Espetáculo da Terra</h2>
+        <p>Acompanhe a história, as modalidades e o quadro de medalhas dos jogos que unem o mundo através do esporte.</p>
+    </section>
+
+    <main class="container" id="esportes">
+        <h2 class="section-title">Modalidades em Destaque</h2>
+        <div class="grid-esportes">
+            
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=400');"></div>
+                <div class="card-content">
+                    <h3>Atletismo</h3>
+                    <p>O coração dos Jogos Olímpicos. Corridas, saltos e arremessos que testam os limites da velocidade e resistência humana.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400');"></div>
+                <div class="card-content">
+                    <h3>Natação</h3>
+                    <p>Velocidade e técnica nas águas. Disputas milimétricas que consagram os atletas mais rápidos das piscinas.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?q=80&w=400');"></div>
+                <div class="card-content">
+                    <h3>Ginástica Artística</h3>
+                    <p>A união perfeita entre força, flexibilidade e precisão em movimentos que desafiam a gravidade.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="container" id="medalhas">
+        <h2 class="section-title">Quadro de Medalhas Ilustrativo</h2>
+        <table class="medal-table">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>País</th>
+                    <th class="medal-icon ouro">● Ouro</th>
+                    <th class="medal-icon prata">● Prata</th>
+                    <th class="medal-icon bronze">● Bronze</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Estados Unidos</td>
+                    <td>40</td>
+                    <td>44</td>
+                    <td>42</td>
+                    <td>126</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>China</td>
+                    <td>40</td>
+                    <td>27</td>
+                    <td>24</td>
+                    <td>91</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Japão</td>
+                    <td>20</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Brasil</td>
+                    <td>3</td>
+                    <td>7</td>
+                    <td>10</td>
+                    <td>20</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Portal Mundo Olímpico. Desenvolvido para fins educacionais no VS Code.</p>
+    </footer>
+
+</body>
+</html>
